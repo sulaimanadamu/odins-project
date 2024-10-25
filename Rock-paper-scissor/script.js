@@ -9,7 +9,7 @@ function getComputerChoice(arraySize){
     return options[getRandomInt(arraySize)]
 }
 
-//select a member of the array as human choice
+//accept input from users 
 function getHumanChoice(){
    let choice = prompt("Rock Paper Scissors? ")
    return choice
