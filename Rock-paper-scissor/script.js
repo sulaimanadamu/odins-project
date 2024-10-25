@@ -2,6 +2,7 @@ const options = ["SCISSORS", "ROCK", "PAPER"]
 let humanScore = 0
 let computerScore = 0
 
+
 function getRandomInt(max){
     return Math.floor(Math.random() * max)
 }
@@ -13,8 +14,8 @@ function getComputerChoice(arraySize){
 
 //accept input from users 
 function getHumanChoice(){
-   let choice = prompt("Rock Paper Scissors? ")
-   return choice
+    let choice = prompt("Rock,  Paper or Scissors? ")
+    return choice.toUpperCase();
 }
 
 function playRound(humanChoice, computerChoice){
@@ -23,7 +24,7 @@ function playRound(humanChoice, computerChoice){
     }
 
     else if(humanChoice === "ROCK" && computerChoice === "SCISSORS"){
-        humanScore += 1
+        humanScore =+ 1
         return "You win, Rock beats scissors anyday anytime."
     }
 
@@ -39,7 +40,7 @@ function playRound(humanChoice, computerChoice){
 
     else if( computerChoice === "ROCK" && humanChoice === "SCISSORS"){
          computerScore += 1
-        return "Computer Won!"
+         return "Computer Won!"
     }
 
     else if(humanChoice === "SCISSORS" &&  computerChoice ==="PAPER"){
@@ -54,6 +55,10 @@ function playRound(humanChoice, computerChoice){
 
 }
 
-console.log(getComputerChoice(options.length))
-getHumanChoice()
+computerChoice = getComputerChoice(options.length)
+humanChoice = getHumanChoice()
 
+
+console.log(playRound(humanChoice, computerChoice))
+console.log(humanScore)
+console.log(computerScore)
