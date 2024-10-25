@@ -10,11 +10,11 @@ function getComputerChoice(arraySize){
 }
 
 //select a member of the array as human choice
-function getHumanChoice(arraySize){
-    return options[getRandomInt(arraySize)]
+function getHumanChoice(){
+   let choice = prompt("Rock Paper Scissors? ")
+   return choice
 }
 
 console.log(getComputerChoice(options.length))
-console.log(getHumanChoice(options.length))
+getHumanChoice()
 
-console.log("hello world!")
