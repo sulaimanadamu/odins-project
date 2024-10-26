@@ -56,11 +56,6 @@ function playRound(humanChoice, computerChoice){
 
 }
 
-computerChoice = getComputerChoice(options.length)
-humanChoice = getHumanChoice()
-
-
-
 console.log(humanScore)
 console.log(computerScore)
 
@@ -68,6 +63,9 @@ console.log(computerScore)
 // allow us to repeat playing of the game.
 function playGame(numOfTimes){
     for(let i = 0; i < numOfTimes; i++){
+        computerChoice = getComputerChoice(options.length)
+        humanChoice = getHumanChoice()
+
         playRound(humanChoice, computerChoice)
         console.log("Computer: ", computerScore, "Your Score: ", humanScore)
     }
