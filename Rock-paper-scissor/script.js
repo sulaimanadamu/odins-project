@@ -56,9 +56,6 @@ function playRound(humanChoice, computerChoice){
 
 }
 
-console.log(humanScore)
-console.log(computerScore)
-
 
 // allow us to repeat playing of the game.
 function playGame(numOfTimes){
