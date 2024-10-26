@@ -66,8 +66,12 @@ function playGame(numOfTimes){
         computerChoice = getComputerChoice(options.length)
         humanChoice = getHumanChoice()
 
+        console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
         playRound(humanChoice, computerChoice)
-        console.log("Computer: ", computerScore, "Your Score: ", humanScore)
+        console.log("Computer: ", computerScore,"     ", "Your Score: ", humanScore)
+        console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+
+
     }
 }
 
