@@ -57,6 +57,8 @@ function playRound(humanChoice, computerChoice){
 }
 
 
+
+
 // allow us to repeat playing of the game.
 function playGame(numOfTimes){
     for(let i = 0; i < numOfTimes; i++){
