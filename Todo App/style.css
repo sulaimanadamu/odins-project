@@ -1,0 +1,93 @@
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #canvas{
+            width:23rem;
+            border: 2px solid green;
+            margin: 2rem auto;
+            padding: 0 5px;
+            background-color: rgb(46, 43, 43);
+            padding: 0 0 .8rem;
+            scroll-behavior: auto;
+    
+            
+        }
+        #input{
+            display: flex;
+            margin: 15px 5px;
+            justify-content: center;
+
+        }
+       #todo{
+        padding: 0.5rem 1.25rem;
+        font-size: 1.25em;
+        outline: none;
+       }
+
+       #add{
+        padding: 0.25rem 1.25rem;
+        font-size: 1.5em;
+        margin-left: 1rem;
+        align-self: self-start;
+        border-radius: 0.8rem;
+       }
+       .todo{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style-type: none;
+        margin: 35px 2px 0;
+        position: relative;
+        border-radius: 5px;
+       }
+
+       .todo p{
+        width: 100%;
+        overflow-wrap: anywhere;
+        font-size: 1.25rem;
+        padding: 15px 10px;
+        color: rgb(50, 48, 48);
+        font-family: 'Times New Roman', Times, serif;
+        background-color: white;
+        border-radius: 8px;
+        margin: 0 15px;
+        line-height: 1.5;
+       }
+
+       #Todo-list{
+        margin-top: 1.5rem;
+       }
+
+       .cancel{
+        font-size: 1.25rem;
+        padding: .5em .75em;
+        background-color: rgb(186, 29, 29);
+        border: none;
+        border-radius: 50%;
+        color: white;
+        position: absolute;
+        right: 0px;
+        top: -20px;
+       }
+       
+       #clear{
+        display: block;
+        padding: 0.6rem 1rem;
+        border:none;
+        background-color: white;
+        color: red;
+        font-size: 1.2em;
+        font-weight: bold;
+        border-radius: 15px;
+        margin: 15px;
+        margin-left: auto;
+       }
+       #clear-wrapper{
+            width: 95%; 
+            margin: 0 auto;
+       }
+       
+    
