@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button img{
+    display: block;
+    border: 2px solid red;
+    object-fit:fit;  
+    rotate: 270deg;
+}
+
+button{
+    margin-bottom: 15px;
+}
+
+#btns{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin: 20px 40px 20px 0;
+}
+
