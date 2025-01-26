@@ -4,17 +4,39 @@
     box-sizing: border-box;
 }
 
+section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+}
+
+h1{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+
+}
+
 button img{
     display: block;
-    border: 2px solid red;
     object-fit:fit;  
     rotate: 270deg;
 }
 
 button{
     margin-bottom: 15px;
+    outline: none;
+    border: none;
 }
-
+#dialog-box{
+    background-color: rgb(179, 179, 179);
+    width: 40vw;
+    height: 30vh;
+    margin: 0 20px ;
+}
 #btns{
     display: flex;
     flex-direction: column;
@@ -22,3 +44,20 @@ button{
     margin: 20px 40px 20px 0;
 }
 
+span {
+   
+    display: inline-block;
+}
+
+#computerChoiceimg{
+    rotate: 90deg;
+}
+
+@media screen  and (max-width: 725px){
+    section{
+        rotate: 270deg; 
+    }
+    #dialog-box{
+         height: 60vh;
+    }
+}
