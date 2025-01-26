@@ -2,21 +2,23 @@ const options = [{"SCISSORS": './images/scissors.png'}, {"ROCK":'./images/rock.p
 const computerChoiceImg = document.querySelector('#computerChoiceimg')
 const dialogBox = document.querySelector('#dialog-box')
 const btns = document.querySelector('#btns')
-let computerChoiceSym = ''
 let humanChoice = ''
+let [computerChoice, imageSrc] = Object.entries(options[getRandomInt(options.length)])[0]
 
-//initial computer image befor the spin.
-computerChoiceImg.src = Object.values(options[getRandomInt(options.length)])
+console.log(dialogBox.style.height)
 
+
+
+//set random image for computer before the spin.
+computerChoiceImg.src = imageSrc
 
 btns.addEventListener('click', getHumanChoice)
-
 
 function getHumanChoice(e){
     humanChoice = e.target.getAttribute('data-represent')
     btns.removeEventListener('click', getHumanChoice)
     removeUnselectedSigns(e.target.parentNode, this)
-    console.log(humanChoice)
+    spin()
 }
 
 function removeUnselectedSigns(selected, element){
@@ -24,19 +26,20 @@ function removeUnselectedSigns(selected, element){
     element.appendChild(selected)
 }
 
-
-function randomImages(){
-const intervalId = setInterval(randomImages, 500)
-setTimeout(() => {
-  clearInterval(intervalId); 
-}, 10000);
+function spin(){
+    console.log("started spin")
+    const intervalId = setInterval(getComputerChoice, 500)
+    setTimeout(() => {
+    clearInterval(intervalId); 
+    playRound(humanChoice, computerChoice,dialogBox)
+    }, 10000);
 }
 
 function getComputerChoice(){
         const entries = Object.entries(options[getRandomInt(options.length)])
-        const [computerChoice, src] = entries[0]
+        const [computerChoiceimg, src] = entries[0]
         computerChoiceImg.src = src
-        computerChoiceSym = computerChoice
+        computerChoice = computerChoiceimg
 }
 
 
@@ -54,40 +57,52 @@ function getRandomInt(max){
 }
 
 
-function playRound(humanChoice, computerChoice){
+function playRound(humanChoice, computerChoice, displayDomElement){
+    let comments = document.createElement('h1')
+    let scoreBoard = document.createElement('h2')
+
     if(humanChoice === computerChoice){
-       console.log( "Wow, its a tie")
+       comments.textContent = "Wow, its a tie"
     }
 
     else if(humanChoice === "ROCK" && computerChoice === "SCISSORS"){
         humanScore =+ 1
-       console.log( "You win, Rock beats scissors anyday anytime.")
+        comments.textContent = "You win, Rock beats scissors anyday anytime."
     }
 
     else if(computerChoice === "SCISSORS" && humanChoice ==="PAPER"){
-        humanScore += 1
-        console.log( "You win, Scissors beats Paper anyday anytime.")
+        computerScore += 1
+       comments.textContent = "Scissors beats Paper anyday anytime, computer win!"
     }
 
     else if(computerChoice === "PAPER" && humanChoice ==="ROCK"){
         humanScore += 1
-       console.log( "You win, Paper beats Rock anyday anytime")
+       comments.textContent = "You win, Paper beats Rock anyday anytime"
     }
 
     else if( computerChoice === "ROCK" && humanChoice === "SCISSORS"){
          computerScore += 1
-        console.log( "Computer Won!")
+         comments.textContent = "Computer Won!"
     }
 
     else if(humanChoice === "SCISSORS" &&  computerChoice ==="PAPER"){
          computerScore += 1
-       console.log( "Computer Won!")
+       comments.textContent = "Computer Won!"
     }
 
     else if(humanChoice === "PAPER" && computerChoice ==="ROCK"){
         computerScore += 1
-       console.log( "Computer Won!")
+        comments.textContent = "Computer Won!"
     }
+
+    scoreBoard.textContent = `${computerScore} === ${humanScore}`
+
+    displayDomElement.appendChild(comments)
+    displayDomElement.appendChild(scoreBoard)
+    const displayStyle = displayDomElement.style
+    displayStyle.textAlign = 'center'
+    displayStyle.fontSize = '0.8rem'
+    displayStyle.fontFamily
 
 }
 
