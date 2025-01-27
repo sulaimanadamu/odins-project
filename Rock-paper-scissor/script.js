@@ -50,7 +50,7 @@ function spin(){
     setTimeout(() => {
     clearInterval(intervalId); 
     playRound(humanChoice, computerChoice,dialogBox)
-    }, 10000);
+    }, 3000);
 }
 
 function getComputerChoice(){
