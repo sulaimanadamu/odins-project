@@ -6,4 +6,4 @@ Rules of the game are
 --> Scissors beat paper
 --> paper beats rock
 
-This game does not have a Gui(graphical user interface)
+ui version 1.0 has been successfully created.
