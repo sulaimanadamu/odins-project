@@ -2,32 +2,50 @@ const options = [{"SCISSORS": './images/scissors.png'}, {"ROCK":'./images/rock.p
 const computerChoiceImg = document.querySelector('#computerChoiceimg')
 const dialogBox = document.querySelector('#dialog-box')
 const btns = document.querySelector('#btns')
+const play = document.querySelector('#play')
+let havePlayedGame = false
 let humanChoice = ''
+let humanScore = 0
+let computerScore = 0
 let [computerChoice, imageSrc] = Object.entries(options[getRandomInt(options.length)])[0]
-
-console.log(dialogBox.style.height)
-
-
 
 //set random image for computer before the spin.
 computerChoiceImg.src = imageSrc
 
-btns.addEventListener('click', getHumanChoice)
+//generate Dom using js
+function populate(){
+    for (myObject of options){
+        const button = document.createElement('button')
+        const image = document.createElement('img')
+        let [id, link] = Object.entries(myObject)[0]
+        image.src = link
+        image.alt = id
+        image.setAttribute("data-represent", id)
+        image.setAttribute("height", 100)
+        image.setAttribute("width", 100)
+        button.setAttribute("id", id)
+        button.appendChild(image)
+        btns.appendChild(button)
+    }
+    btns.addEventListener('click', getHumanChoice)
+}
+
+populate()
 
 function getHumanChoice(e){
     humanChoice = e.target.getAttribute('data-represent')
     btns.removeEventListener('click', getHumanChoice)
     removeUnselectedSigns(e.target.parentNode, this)
     spin()
+    havePlayedGame = true
 }
 
 function removeUnselectedSigns(selected, element){
-    element.textContent = ''
+    element.textContent = null
     element.appendChild(selected)
 }
 
 function spin(){
-    console.log("started spin")
     const intervalId = setInterval(getComputerChoice, 500)
     setTimeout(() => {
     clearInterval(intervalId); 
@@ -42,24 +60,14 @@ function getComputerChoice(){
         computerChoice = computerChoiceimg
 }
 
-
-
-
-
-let humanScore = 0
-let computerScore = 0
-let error = 0
-
-
-
 function getRandomInt(max){
     return Math.floor(Math.random() * max)
 }
 
-
+//computation logic
 function playRound(humanChoice, computerChoice, displayDomElement){
     let comments = document.createElement('h1')
-    let scoreBoard = document.createElement('h2')
+    let scoreBoard = document.createElement('h1')
 
     if(humanChoice === computerChoice){
        comments.textContent = "Wow, its a tie"
@@ -103,19 +111,17 @@ function playRound(humanChoice, computerChoice, displayDomElement){
     displayStyle.textAlign = 'center'
     displayStyle.fontSize = '0.8rem'
     displayStyle.fontFamily
-
 }
 
 
-// allow us to repeat playing of the game.
-// function playGame(){
-//         // computerChoice = getComputerChoice(options.length)
-//         // humanChoice = getHumanChoice()
+play.addEventListener('click', repopulate)
 
-//         console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-//         playRound(humanChoice, computerChoice)
-//         console.log("Computer: ", computerScore,"     ", "Your Score: ", humanScore)
-//         console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-// }
-
-// playGame()
+function repopulate(){
+    if(havePlayedGame){
+    btns.textContent = null
+    populate()
+    dialogBox.textContent = null
+    console.log(btns)
+    havePlayedGame = false
+    }
+}
