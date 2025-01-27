@@ -84,7 +84,7 @@ function playRound(humanChoice, computerChoice, displayDomElement){
     }
 
     else if(computerChoice === "PAPER" && humanChoice ==="ROCK"){
-        humanScore += 1
+        computerScore += 1
        comments.textContent = "You win, Paper beats Rock anyday anytime"
     }
 
@@ -94,13 +94,13 @@ function playRound(humanChoice, computerChoice, displayDomElement){
     }
 
     else if(humanChoice === "SCISSORS" &&  computerChoice ==="PAPER"){
-         computerScore += 1
-       comments.textContent = "Computer Won!"
+         humanScore += 1
+       comments.textContent = "you did it!"
     }
 
     else if(humanChoice === "PAPER" && computerChoice ==="ROCK"){
-        computerScore += 1
-        comments.textContent = "Computer Won!"
+        humanScore += 1
+        comments.textContent = "You Won!"
     }
 
     scoreBoard.textContent = `${computerScore} === ${humanScore}`
